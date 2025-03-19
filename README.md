@@ -1,5 +1,8 @@
 # Snowflake Projects
 
+![image](https://github.com/user-attachments/assets/b1a7fe8b-ee4a-4dc8-9bdc-ff869f443015)
+
+
 ## Overview
 Welcome to my **Snowflake Projects** repository! This repository houses a collection of projects where I explore Snowflake, a cloud-based data platform, using Python for data ingestion and analysis. Each project is documented with a detailed Medium post, providing insights into the process, challenges, and solutions.
 
