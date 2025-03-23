@@ -4,12 +4,12 @@ import pandas as pd
 import altair as alt
 
 conn = snowflake.connector.connect(
-    user = 'kothiyal',
-    password = 'Kothiyal@642912',
-    account = 'WSPPEEP-XN49709',
-    warehouse = 'COMPUTE_WH',
-    database = 'RETAIL_DB',
-    schema = 'SALES'
+    user=st.secrets["snowflake"]["user"],
+    password=st.secrets["snowflake"]["password"],
+    account=st.secrets["snowflake"]["account"],
+    warehouse=st.secrets["snowflake"]["warehouse"],
+    database='RETAIL_DB',
+    schema='SALES'
 )
 
 # Query data
@@ -22,10 +22,6 @@ cursor = conn.cursor()
 cursor.execute(revenue_query)
 df_revenue = pd.DataFrame(cursor.fetchall(), columns=[desc[0] for desc in cursor.description])
 
-# Debug: Print the DataFrame to check column names
-st.write("Debug: DataFrame columns:", df_revenue.columns.tolist())
-st.write("Debug: DataFrame preview:", df_revenue.head())
-
 # Rename columns to lowercase
 df_revenue.columns = [col.lower() for col in df_revenue.columns]
 
@@ -33,8 +29,8 @@ df_revenue.columns = [col.lower() for col in df_revenue.columns]
 df_revenue['total_revenue'] = df_revenue['total_revenue'].astype(float)
 
 # Streamlit dashboard
-st.title("TechTrend Sales Dashboard")
-st.subheader("Revenue by Product")
+st.title("Retail Sales Tracking Project")
+st.subheader("Decoding Digital Age")
 
 # Create a custom Altair chart
 chart = alt.Chart(df_revenue).mark_bar().encode(
@@ -51,8 +47,8 @@ chart = alt.Chart(df_revenue).mark_bar().encode(
 st.altair_chart(chart, use_container_width=True)
 
 # Display raw data
-st.subheader("Sample Data")
-cursor.execute("SELECT * FROM sales_data LIMIT 5")
+st.subheader("Data")
+cursor.execute("SELECT * FROM sales_data")
 df_sample = pd.DataFrame(cursor.fetchall(), columns=[desc[0] for desc in cursor.description])
 df_sample.columns = [col.lower() for col in df_sample.columns]
 st.write(df_sample)
