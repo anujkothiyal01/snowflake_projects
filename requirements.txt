@@ -2,3 +2,5 @@ streamlit
 snowflake-connector-python
 pandas
 altair
+scikit-learn
+numpy
