@@ -25,5 +25,12 @@ Welcome to my **Snowflake Projects** repository! This repository houses a collec
 - Snowflake Connector for Python
 - GitHub
 
+### 2. Retail Sales Tracking Project [Snowflake + Streamlit]
+
+https://github.com/user-attachments/assets/96f372f1-69a8-440d-b40f-998bc0687613
+
+
+
+
 ### Author
 Anuj Kothiyal
